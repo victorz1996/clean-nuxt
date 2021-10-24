@@ -10,8 +10,7 @@ export class ListZonaSitec {
     private readonly zonaSitecRepository: ZonaSitecRespository
   ) {}
 
-  async listZona(zonaId:number): Promise<any> {
-    const data = await this.zonaSitecRepository.getZona(zonaId)
-    return data
+  listZona(zonaId: number): Promise<any> {
+    return this.zonaSitecRepository.getZona(zonaId)
   }
 }

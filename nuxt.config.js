@@ -50,16 +50,41 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
-
+  auth: {
+    strategies: {
+      local: {
+        user: {
+          property: false
+        },
+        endpoints: {
+          login: { url: '/authenticate', method: 'post' },
+          logout: false,
+          user: { url: '/account', method: 'get' }
+        },
+        token: {
+          property: 'id_token',
+          required: true,
+          type: 'Bearer'
+        },
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: false,
+      home: '/',
+    }
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://200.21.4.69:8081/api'
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

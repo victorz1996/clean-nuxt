@@ -1,6 +1,13 @@
 <template>
   <div class="mt-5">
-    <h3>Zonas Sitecs</h3>
+    <v-row>
+      <v-col sm="10">
+        <h3>Zonas Sitecs</h3>
+      </v-col>
+      <v-col sm="2">
+        <v-btn color="error" @click="salir">Salir</v-btn>
+      </v-col>
+    </v-row>
     <v-data-table
       :headers="headers"
       :items="zonas"
@@ -9,8 +16,8 @@
     >
       <template #[`item.actions`]="{ item }">
         <v-icon @click="seeItem(item)"> mdi-eye </v-icon>
-      </template></v-data-table
-    >
+      </template>
+    </v-data-table>
   </div>
 </template>
 <script lang="ts">
@@ -19,9 +26,12 @@ import { container } from '../src/shared/infrastructure/Container'
 import { ListZonasSitecs } from '~/src/home/zonasSitec/application/listZonasSitecs/ListZonasSitecs'
 import { SYMBOLS } from '~/src/shared/infrastructure/Types'
 import { ZonaSitec } from '~/src/home/zonasSitec/domain/ZonaSitec'
-@Component({})
+@Component({
+  middleware: 'auth',
+})
 export default class Index extends Vue {
   zonas: ZonaSitec[] = []
+  $auth: any
   headers: any = [
     { text: 'Id', value: 'id' },
     { text: 'Descripcion', value: 'descripcion' },
@@ -37,6 +47,11 @@ export default class Index extends Vue {
     this.zonas = await container
       .get<ListZonasSitecs>(SYMBOLS.GET_ALL_ZONAS_SITECS)
       .listZonas()
+  }
+
+  async salir() {
+    await this.$auth.logout()
+    this.$router.push('/login')
   }
 
   seeItem(item: ZonaSitec) {

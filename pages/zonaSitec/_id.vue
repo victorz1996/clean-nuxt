@@ -32,7 +32,7 @@
       </v-col>
     </v-row>
     <div class="d-flex justify-content-end mt-5">
-      <v-btn @click="salir" color="error">Volver</v-btn>
+      <v-btn color="error" @click="salir">Volver</v-btn>
     </div>
   </div>
 </template>
@@ -42,7 +42,9 @@ import { container } from '@/src/shared/infrastructure/Container'
 import { SYMBOLS } from '~/src/shared/infrastructure/Types'
 import { ZonaSitec } from '~/src/home/zonasSitec/domain/ZonaSitec'
 import { ListZonaSitec } from '~/src/home/zonasSitec/application/listZonaSitec/ListZonaSitec'
-@Component({})
+@Component({
+  middleware: 'auth',
+})
 export default class Index extends Vue {
   zona: ZonaSitec = {}
 

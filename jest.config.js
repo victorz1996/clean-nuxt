@@ -10,6 +10,7 @@ module.exports = {
     'vue',
     'json'
   ],
+  testMatch: ["**/tests/**/*.+(ts|tsx|js)", "**/?(*.)+(spec|test).+(ts|tsx|js)"],
   transform: {
     "^.+\\.ts$": "ts-jest",
     '^.+\\.js$': 'babel-jest',
@@ -17,8 +18,8 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/components/**/*.vue',
-    '<rootDir>/pages/**/*.vue'
+    '<rootDir>/src/**/*.ts',
   ],
-  testEnvironment: 'jsdom'
+  setupFiles: ['<rootDir>/test/setup.ts'],
+  testEnvironment: 'jsdom',
 }
