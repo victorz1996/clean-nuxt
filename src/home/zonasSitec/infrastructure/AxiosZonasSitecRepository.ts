@@ -13,7 +13,7 @@ export class AxiosZonasSitecRepository implements ZonaSitecRespository {
     },
   }
 
-  async getAllZonas(): Promise<any> {
+  async getAllZonas(): Promise<unknown> {
     const res = await axios.get(
       `${this.baseURL}/services/simdcp/api/zona-sitecs`,
       this.config
@@ -21,7 +21,7 @@ export class AxiosZonasSitecRepository implements ZonaSitecRespository {
     return res.data
   }
 
-  async getZona(zonaId: number): Promise<any> {
+  async getZona(zonaId: number): Promise<unknown> {
     const res = await axios.get(
       `${this.baseURL}/services/simdcp/api/zona-sitecs/${zonaId}`,
       this.config

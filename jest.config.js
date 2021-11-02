@@ -6,9 +6,9 @@ module.exports = {
   },
   moduleFileExtensions: [
     'ts',
+    'tsx',
     'js',
     'vue',
-    'json'
   ],
   testMatch: ["**/tests/**/*.+(ts|tsx|js)", "**/?(*.)+(spec|test).+(ts|tsx|js)"],
   transform: {
