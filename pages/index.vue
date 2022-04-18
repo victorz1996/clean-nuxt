@@ -43,7 +43,7 @@ export default class Index extends Vue {
     this.loadZonas()
   }
 
-  async loadZonas() {
+  async loadZonas(): Promise<void> {
     this.zonas = await container
       .get<ListZonasSitecs>(SYMBOLS.GET_ALL_ZONAS_SITECS)
       .listZonas()

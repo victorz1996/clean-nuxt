@@ -13,8 +13,8 @@ export class ListZonasSitecs {
     @inject(SYMBOLS.STATE_MANAGER) private readonly stateManager: StateManager
   ) {}
 
-  listZonas(): ZonaSitec[] {
-    const zonas = this.zonaSitecRepository.getAllZonas()
+  async listZonas(): Promise<ZonaSitec[]> {
+    const zonas = await this.zonaSitecRepository.getAllZonas()
     this.stateManager.updateZonas(zonas)
     return this.stateManager.zonas
   }
