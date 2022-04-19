@@ -40,8 +40,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { container } from '@/src/shared/infrastructure/Container'
 import { SYMBOLS } from '~/src/shared/infrastructure/Types'
-import { ZonaSitec } from '~/src/home/zonasSitec/domain/ZonaSitec'
-import { ListZonaSitec } from '~/src/home/zonasSitec/application/listZonaSitec/ListZonaSitec'
+import { ZonaSitec } from '~/src/home/zonas-sitec/domain/ZonaSitec'
+import { ListZonaSitec } from '~/src/home/zonas-sitec/application/listZonaSitec/ListZonaSitec'
 @Component({
   middleware: 'auth',
 })

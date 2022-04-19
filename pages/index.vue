@@ -8,31 +8,24 @@
         <v-btn color="error" @click="salir">Salir</v-btn>
       </v-col>
     </v-row>
-    <v-data-table
-      :headers="headers"
-      :items="zonas"
-      :items-per-page="10"
-      class="elevation-1 mt-5"
-    >
-      <template #[`item.actions`]="{ item }">
-        <v-icon @click="seeItem(item)"> mdi-eye </v-icon>
-      </template>
-    </v-data-table>
+    <tabla :headers="cabeceras" :items="zonas" @seeItem="seeItem($event)" />
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { container } from '../src/shared/infrastructure/Container'
-import { ListZonasSitecs } from '~/src/home/zonasSitec/application/listZonasSitecs/ListZonasSitecs'
+import Table from '../components/table/table.vue'
+import { ListZonasSitecs } from '~/src/home/zonas-sitec/application/listZonasSitecs/ListZonasSitecs'
 import { SYMBOLS } from '~/src/shared/infrastructure/Types'
-import { ZonaSitec } from '~/src/home/zonasSitec/domain/ZonaSitec'
+import { ZonaSitec } from '~/src/home/zonas-sitec/domain/ZonaSitec'
 @Component({
   middleware: 'auth',
+  components: { tabla: Table },
 })
 export default class Index extends Vue {
   zonas: ZonaSitec[] = []
   $auth: any
-  headers: any = [
+  cabeceras: any = [
     { text: 'Id', value: 'id' },
     { text: 'Descripcion', value: 'descripcion' },
     { text: 'Estado', value: 'estado' },
@@ -55,7 +48,7 @@ export default class Index extends Vue {
   }
 
   seeItem(item: ZonaSitec) {
-    this.$router.push(`/zonaSitec/${item.id}`)
+    this.$router.push(`/zona-sitec/${item.id}`)
   }
 }
 </script>

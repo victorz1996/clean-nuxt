@@ -1,12 +1,12 @@
 import { Container } from 'inversify'
 import 'reflect-metadata'
 import getDecorators from 'inversify-inject-decorators'
-import { ZonaSitecRespository } from '../../home/zonasSitec/domain/ZonaSitecRepository'
-import { AxiosZonasSitecRepository } from '../../home/zonasSitec/infrastructure/AxiosZonasSitecRepository'
-import { ListZonaSitec } from '../../home/zonasSitec/application/listZonaSitec/ListZonaSitec'
-import { ListZonasSitecs } from '../../home/zonasSitec/application/listZonasSitecs/ListZonasSitecs'
-import { StateManager } from '../../home/zonasSitec/application/StateManager'
-import { InMemoryStateManager } from '../../home/zonasSitec/infrastructure/InMemoryStateManager'
+import { ZonaSitecRespository } from '../../home/zonas-sitec/domain/ZonaSitecRepository'
+import { AxiosZonasSitecRepository } from '../../home/zonas-sitec/infrastructure/AxiosZonasSitecRepository'
+import { ListZonaSitec } from '../../home/zonas-sitec/application/listZonaSitec/ListZonaSitec'
+import { ListZonasSitecs } from '../../home/zonas-sitec/application/listZonasSitecs/ListZonasSitecs'
+import { StateManager } from '../../home/zonas-sitec/application/StateManager'
+import { InMemoryStateManager } from '../../home/zonas-sitec/infrastructure/InMemoryStateManager'
 import { SYMBOLS } from './Types'
 
 export const container = new Container({ skipBaseClassChecks: true })

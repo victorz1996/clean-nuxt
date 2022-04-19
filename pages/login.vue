@@ -43,7 +43,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({
   layout: 'login',
 })
-export default class Index extends Vue {
+export default class Login extends Vue {
   $auth: any
   username: string = ''
   password: string = ''
